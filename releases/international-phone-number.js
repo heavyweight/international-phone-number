@@ -96,6 +96,9 @@
           ctrl.$validators.internationalPhoneNumber = function(value) {
             var selectedCountry;
             selectedCountry = element.intlTelInput('getSelectedCountryData');
+            if (element.is(':disabled')) {
+              return true;
+            }
             if (!value || (selectedCountry && selectedCountry.dialCode === value)) {
               return true;
             }

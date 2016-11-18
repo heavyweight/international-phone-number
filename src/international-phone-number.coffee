@@ -103,6 +103,8 @@ angular.module("internationalPhoneNumber", [])
     ctrl.$validators.internationalPhoneNumber = (value) ->
       selectedCountry = element.intlTelInput('getSelectedCountryData')
 
+      if element.is(':disabled')
+        return true
       if !value || (selectedCountry && selectedCountry.dialCode == value)
         return true
 
